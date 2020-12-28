@@ -32,9 +32,11 @@
             this.usernameLabel = new MetroFramework.Controls.MetroLabel();
             this.passwordLabel = new MetroFramework.Controls.MetroLabel();
             this.signinButton = new MetroFramework.Controls.MetroButton();
+            this.LicenseCallButton = new MetroFramework.Controls.MetroButton();
+            this.departmentsMetroButton = new MetroFramework.Controls.MetroButton();
+            this.departmentMetroComboBoxLogin = new MetroFramework.Controls.MetroComboBox();
             this.passwordTextBox = new MetroFramework.Controls.MetroTextBox();
             this.usernameTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.LicenseCallButton = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // usernameLabel
@@ -79,6 +81,36 @@
             this.signinButton.UseStyleColors = true;
             this.signinButton.Click += new System.EventHandler(this.signinButton_Click);
             // 
+            // LicenseCallButton
+            // 
+            this.LicenseCallButton.Location = new System.Drawing.Point(468, 354);
+            this.LicenseCallButton.Name = "LicenseCallButton";
+            this.LicenseCallButton.Size = new System.Drawing.Size(48, 23);
+            this.LicenseCallButton.TabIndex = 7;
+            this.LicenseCallButton.Text = "License";
+            this.LicenseCallButton.UseSelectable = true;
+            this.LicenseCallButton.Click += new System.EventHandler(this.LicenseCallButton_Click);
+            // 
+            // departmentsMetroButton
+            // 
+            this.departmentsMetroButton.Location = new System.Drawing.Point(387, 354);
+            this.departmentsMetroButton.Name = "departmentsMetroButton";
+            this.departmentsMetroButton.Size = new System.Drawing.Size(75, 23);
+            this.departmentsMetroButton.TabIndex = 8;
+            this.departmentsMetroButton.Text = "Departments";
+            this.departmentsMetroButton.UseSelectable = true;
+            this.departmentsMetroButton.Click += new System.EventHandler(this.departmentsMetroButton_Click);
+            // 
+            // departmentMetroComboBoxLogin
+            // 
+            this.departmentMetroComboBoxLogin.FormattingEnabled = true;
+            this.departmentMetroComboBoxLogin.ItemHeight = 23;
+            this.departmentMetroComboBoxLogin.Location = new System.Drawing.Point(165, 64);
+            this.departmentMetroComboBoxLogin.Name = "departmentMetroComboBoxLogin";
+            this.departmentMetroComboBoxLogin.Size = new System.Drawing.Size(203, 29);
+            this.departmentMetroComboBoxLogin.TabIndex = 9;
+            this.departmentMetroComboBoxLogin.UseSelectable = true;
+            // 
             // passwordTextBox
             // 
             this.passwordTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
@@ -118,21 +150,13 @@
             this.usernameTextBox.UseStyleColors = true;
             this.usernameTextBox.Click += new System.EventHandler(this.usernameTextBox_Click);
             // 
-            // LicenseCallButton
-            // 
-            this.LicenseCallButton.Location = new System.Drawing.Point(468, 354);
-            this.LicenseCallButton.Name = "LicenseCallButton";
-            this.LicenseCallButton.Size = new System.Drawing.Size(48, 23);
-            this.LicenseCallButton.TabIndex = 7;
-            this.LicenseCallButton.Text = "License";
-            this.LicenseCallButton.UseSelectable = true;
-            this.LicenseCallButton.Click += new System.EventHandler(this.LicenseCallButton_Click);
-            // 
-            // login
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 377);
+            this.Controls.Add(this.departmentMetroComboBoxLogin);
+            this.Controls.Add(this.departmentsMetroButton);
             this.Controls.Add(this.LicenseCallButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
@@ -140,10 +164,11 @@
             this.Controls.Add(this.signinButton);
             this.Controls.Add(this.usernameTextBox);
             this.MaximizeBox = false;
-            this.Name = "login";
+            this.Name = "Login";
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Login";
+            this.Activated += new System.EventHandler(this.Login_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.login_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,6 +183,8 @@
         private MetroFramework.Controls.MetroLabel passwordLabel;
         private MetroFramework.Controls.MetroTextBox passwordTextBox;
         private MetroFramework.Controls.MetroButton LicenseCallButton;
+        private MetroFramework.Controls.MetroButton departmentsMetroButton;
+        private MetroFramework.Controls.MetroComboBox departmentMetroComboBoxLogin;
         
        
     }

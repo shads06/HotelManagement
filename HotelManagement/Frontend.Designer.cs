@@ -1,4 +1,5 @@
-﻿namespace Hotel_Manager
+﻿using System;
+namespace Hotel_Manager
 {
     partial class Frontend
     {
@@ -381,12 +382,12 @@
             this.depDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.depDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.depDatePicker.Location = new System.Drawing.Point(16, 191);
-            this.depDatePicker.MaxDate = new System.DateTime(2015, 4, 27, 23, 59, 0, 0);
-            this.depDatePicker.MinDate = new System.DateTime(2014, 4, 27, 0, 0, 0, 0);
+            this.depDatePicker.MaxDate = new System.DateTime(DateTime.Today.Ticks).AddMonths(6);
+            this.depDatePicker.MinDate = new System.DateTime(DateTime.Today.Ticks);
             this.depDatePicker.Name = "depDatePicker";
             this.depDatePicker.Size = new System.Drawing.Size(316, 26);
             this.depDatePicker.TabIndex = 31;
-            this.depDatePicker.Value = new System.DateTime(2014, 4, 27, 0, 0, 0, 0);
+            this.depDatePicker.Value = new System.DateTime(DateTime.Today.Ticks);
             // 
             // roomNComboBox
             // 
@@ -474,12 +475,12 @@
             this.entryDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entryDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.entryDatePicker.Location = new System.Drawing.Point(16, 140);
-            this.entryDatePicker.MaxDate = new System.DateTime(2015, 4, 27, 23, 59, 0, 0);
-            this.entryDatePicker.MinDate = new System.DateTime(2014, 5, 11, 0, 0, 0, 0);
+            this.entryDatePicker.MaxDate = new System.DateTime(DateTime.Today.Ticks).AddMonths(6);
+            this.entryDatePicker.MinDate = new System.DateTime(DateTime.Today.Ticks);
             this.entryDatePicker.Name = "entryDatePicker";
             this.entryDatePicker.Size = new System.Drawing.Size(314, 26);
             this.entryDatePicker.TabIndex = 26;
-            this.entryDatePicker.Value = new System.DateTime(2014, 5, 11, 0, 0, 0, 0);
+            this.entryDatePicker.Value = new System.DateTime(DateTime.Today.Ticks);
             // 
             // entryLabel
             // 

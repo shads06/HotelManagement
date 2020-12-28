@@ -11,11 +11,17 @@ using MetroFramework.Drawing;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Hotel_Manager.Models;
+using Hotel_Manager.Managers;
+using Hotel_Manager.Exceptions;
 
 namespace Hotel_Manager
 {
     public partial class Login : MetroForm
     {
+
+        DepartmentManager departmentManager = new DepartmentManager();
+
         public Login()
         {
             InitializeComponent();
@@ -118,7 +124,7 @@ namespace Hotel_Manager
 
         private void login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void LicenseCallButton_Click(object sender, EventArgs e)
@@ -126,5 +132,78 @@ namespace Hotel_Manager
             License open_license = new License();
             open_license.ShowDialog();
         }
+
+        private void departmentsMetroButton_Click(object sender, EventArgs e)
+        {
+            Hotel_Manager.Views.DepartmentView departmentView = new Views.DepartmentView();
+            departmentView.Show();
+        }
+
+        private void Login_Activated(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (_DepartmentFormActvationErrorCount == 0)
+                {
+
+                    var departments = new List<Department>();
+
+                    try
+                    {
+
+                        departments = departmentManager.GetAll().ToList();
+
+                        departmentMetroComboBoxLogin.Items.Clear();
+
+                        foreach (var department in departments)
+                        {
+
+                            departmentMetroComboBoxLogin.Items.Add(department.Name);
+
+                        }
+
+                        if (departments.Count > 0)
+                            departmentMetroComboBoxLogin.SelectedIndex = 0;
+
+                        _DepartmentFormActvationErrorCount = 0;
+
+                    }
+                    catch (EntityNotFoundException ex)
+                    {
+
+                        _DepartmentFormActvationErrorCount++;
+
+                        MetroFramework.MetroMessageBox.Show(this, ex.Message.ToString(), "Information", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
+
+                    }
+
+                }
+                else
+                {
+
+                    if (_DepartmentFormActvationErrorCount == 3)
+                        _DepartmentFormActvationErrorCount = 0;
+                    else
+                        _DepartmentFormActvationErrorCount++;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                _DepartmentFormActvationErrorCount++;
+
+                MetroFramework.MetroMessageBox.Show(this, ex.Message.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+
+        public int _DepartmentFormActvationErrorCount = 0;
+
     }
 }
